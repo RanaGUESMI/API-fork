@@ -2,7 +2,7 @@ const User=require("../models/User")
 const bcrypt=require("bcrypt")
 const jwt=require("jsonwebtoken")
 module.exports={
-    register:async(req,res)=>{
+    registre:async(req,res)=>{
         const { name, lastName, email, password } = req.body;
   try {
     // Simple Validation
