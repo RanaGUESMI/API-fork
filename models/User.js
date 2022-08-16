@@ -8,9 +8,9 @@ const Schema = mongoose.Schema;
 //Create the user schema
 const userSchema = new Schema({
     name:{
-
     type: String,
-    required: true,},
+    required: true
+},
     lastName:{
 
         type: String,
@@ -27,8 +27,8 @@ const userSchema = new Schema({
 
     role: {
                     type: String,
-                    required: true,
-                    enum: ['Admin', 'Formateur', 'Gestionnaire','Student'],
+                    // required: true,
+                    enum: ['Admin','Formateur', 'Gestionnaire','Student'],
                     default: 'Student'
                 },
     courses:[{
@@ -51,5 +51,10 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Certificate'
     }],
+
+    isDeleted : {
+        type: Boolean,
+        default: false
+    }
 });
 module.exports= User = mongoose.model('User',userSchema );
