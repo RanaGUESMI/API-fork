@@ -2,7 +2,7 @@ const User=require("../models/User")
 const bcrypt=require("bcrypt")
 const jwt=require("jsonwebtoken")
 module.exports={
-    registre:async(req,res)=>{
+    register:async(req,res)=>{
         const { name, lastName, email, password } = req.body;
   try {
     // Simple Validation
@@ -18,7 +18,7 @@ module.exports={
     }
 
     // Create new User
-    user = new User({ name, lastName, email, password });
+    user = new User({ name, lastName, email, password, role });
 
     // Create Salt & hash
     const salt = 10;

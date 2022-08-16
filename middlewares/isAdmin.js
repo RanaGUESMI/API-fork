@@ -8,7 +8,7 @@ const isAdmin=async(req,res,next)=>{
         return res.status(401).json({msg:"unauthorized"})
     }
 
-    const decoded=await jwt.verify(token,"SecretKey")
+    const decoded=await jwt.verify(token,process.env.secretOrKey)
     if(!decoded){
         return res.status(401).json({msg:"unauthorized"})
     }
