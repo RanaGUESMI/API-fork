@@ -4,11 +4,11 @@ const authController=require("../../controllers/authController");
 const isAuth = require("../../middlewares/isAuth");
 const {registerRules,validator,loginRules}=require("../../middlewares/validator")
 
-//@path  http://localhost:5000/api/users/register
+//@path  http://localhost:5000/api/users/registre
 //metode post registre user
 //@accés public or private
 
-router.post("/register",registerRules(),validator,authController.register)
+router.post("/registre",registerRules(),validator,authController.registre)
 
 
 
