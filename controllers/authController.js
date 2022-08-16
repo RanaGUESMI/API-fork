@@ -2,8 +2,8 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 module.exports = {
-  registerr: async (req, res) => {
-    const { name, lastName, email, password } = req.body;
+  register: async (req, res) => {
+    const { name, lastName, email, password, role } = req.body;
     try {
       // Simple Validation
       /*            if (!name || !lastName || !email || !password) {
@@ -18,7 +18,7 @@ module.exports = {
       }
 
       // Create new User
-      user = new User({ name, lastName, email, password });
+      user = new User({ name, lastName, email, password, role });
 
       // Create Salt & hash
       const salt = 10;

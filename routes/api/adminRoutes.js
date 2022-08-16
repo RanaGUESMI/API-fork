@@ -1,6 +1,6 @@
 const express=require("express")
 const router=express.Router()
-const User=require("../../models/User");
+// const User=require("../../models/User");
 const adminController=require("../../controllers/adminController");
 const isAuth=require("../../middlewares/isAuth")
 const isAdmin = require("../../middlewares/isAdmin")
@@ -10,7 +10,9 @@ const isAdmin = require("../../middlewares/isAdmin")
 // get all users
 //
 
-router.get("/",isAuth,isAdmin,adminController.getUsers);
+// router.get("/",isAuth,isAdmin, adminController.getAdmins);
+router.get("/",isAuth, adminController.getAdmins).patch("/:id", isAuth, adminController.updateAdmin).patch("/delete/:id", adminController.deleteAdmin)
+router.get("/trainer",isAuth, adminController.getTrainer);
 
 
 
