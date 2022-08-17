@@ -1,10 +1,11 @@
 {
+
   "name": "e-learning",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "serveur": "nodemon server.js"
   },
   "author": "ZAIDI",
   "license": "ISC",
