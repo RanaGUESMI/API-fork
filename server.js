@@ -22,7 +22,7 @@ app.use(express.json());
 connectDB();
 
 //Use Route
-/* app.use('/api/users',userRoutes); */
+app.use('/api/users',userRoutes); 
 app.use('/api/profiles',profile);
 app.use('/api/admin',adminRoutes);
 
@@ -33,7 +33,7 @@ app.use('/api/formations',formation);
 
 
 //Create Port 
-const port = 6000
+const port = 5000
 
 //Launch server
 app.listen(port , (error)=>
