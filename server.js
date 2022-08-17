@@ -22,14 +22,13 @@ app.use(express.json());
 connectDB();
 
 //Use Route
-app.use('/api/users',userRoutes);
+/* app.use('/api/users',userRoutes); */
 app.use('/api/profiles',profile);
 app.use('/api/admin',adminRoutes);
 
 app.use('/api/courses',course);
 app.use('/api/chapitres',chapitre);
 // app.use('/api/chapitres',isAuth,chapitre);
-app.use('/api/chapitres',chapitre);
 app.use('/api/formations',formation);
 
 
