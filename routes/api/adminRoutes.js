@@ -10,7 +10,7 @@ const isAdmin = require("../../middlewares/isAdmin");
 
 // router.get("/",isAuth,isAdmin, adminController.getAdmins);
 
-router.get("/",isAuth, adminController.getAdmins).patch("/updateAdmin/:id", isAuth, adminController.updateAdmin).patch("/deleteAdmin/:id", adminController.deleteAdmin)
+// router.get("/",isAuth, adminController.getAdmins).patch("/updateAdmin/:id", isAuth, adminController.updateAdmin).patch("/deleteAdmin/:id", adminController.deleteAdmin)
 
 
 // path: http://localhost:5000/api/gestionnaires/

@@ -61,3 +61,8 @@ const userSchema = new Schema({
   },
 });
 module.exports = User = mongoose.model("User", userSchema);
+
+
+// moula el bash => superAdmin 
+// Gestionniare => Admin 
+// 

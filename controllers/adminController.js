@@ -1,15 +1,5 @@
 const User = require("../models/User");
 
-/* const getUsers = async(req,res) => {
-    try {
-        const users = await User.find().select("-passwprd").populate("Formations")
-        res.json({msg:"list users loaded", users})
-    } catch (error) {
-        res.status(500).send("server error")
-
-    }
-} */
-
 
 // controller function
 
