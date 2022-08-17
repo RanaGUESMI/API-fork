@@ -1,15 +1,15 @@
-const express=require("express")
-const router=express.Router()
+const express = require("express");
+const router = express.Router();
 // const User=require("../../models/User");
-const adminController=require("../../controllers/adminController");
-const isAuth=require("../../middlewares/isAuth")
-const isAdmin = require("../../middlewares/isAdmin")
-
+const adminController = require("../../controllers/adminController");
+const isAuth = require("../../middlewares/isAuth");
+const isAdmin = require("../../middlewares/isAdmin");
 
 // path: http://localhost:5000/api/users/
 // get all users
 
 // router.get("/",isAuth,isAdmin, adminController.getAdmins);
+
 router.get("/",isAuth, adminController.getAdmins).patch("/updateAdmin/:id", isAuth, adminController.updateAdmin).patch("/deleteAdmin/:id", adminController.deleteAdmin)
 
 
@@ -59,4 +59,4 @@ router.patch("/updateStud/:id", isAuth, adminController.updateStudent)
 // delete un Student By id
 router.delete("/deleteStud/:id", isAuth,adminController.deleteStudent)
 
-module.exports=router;
+module.exports = router;
