@@ -8,7 +8,7 @@ const {registerRules,validator,loginRules}=require("../../middlewares/validator"
 //metode post registre user
 //@accés public or private
 
-router.post("/registre",registerRules(),validator,authController.registre)
+router.post("/registre",registerRules(),validator,authController.register)
 
 
 
