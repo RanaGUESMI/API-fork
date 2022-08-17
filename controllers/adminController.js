@@ -6,18 +6,10 @@ const User = require("../models/User");
         res.json({msg:"list users loaded", users})
     } catch (error) {
         res.status(500).send("server error")
-    } */
-/* 
- module.exports={  
-     getUsers: async(req,res) => { 
-       try {
-            
-             let users= (await User.find().select("-password").populate("Formations"))
-             res.json({msg:"list users loaded",users})
-         } catch (error) {
-             res.status(500).send("server error")
-         }
-     } */
+
+    }
+} */
+
 
 // controller function
 
@@ -63,63 +55,177 @@ const updateAdmin = async (req, res) => {
 };
 
 // /api/admin/delete/73857873578573
-const archiveAdmin = async (req, res) => {
-  try {
-    const id = req.params.id;
-    // const deletedAdmin = await User.findByIdAndUpdate(id, { isDeleted: true });
-    const deletedAdmin = await User.find(id, { isDeleted: true });
-    res.status(200).json({ msg: "admin deleted" });
-  } catch (error) {
-    console.log(error);
-    // in case we have an error
-    res.status(400).json({
-      error,
-    });
-  }
-};
 
-const deleteAdmin = async (req, res) => {
-  try {
-    const id = req.params.id;
-    const deletedAdmin = await User.findOneAndDelete({ _id: id });
-    res.status(200).json({
-      msg: "user delete",
-      deletedAdmin,
-    });
-  } catch (error) {
-    console.log(error);
-    // in case we have an error
-    res.status(400).json({
-      error,
-    });
-  }
-};
+const deleteAdmin = async(req, res) => {
+    try {
+        const id = req.params.id
+        const deletedAdmin = await User.findByIdAndUpdate(id,{isDeleted: true}) 
+        res.status(200).json({msg: "admin deleted"})
+    } catch (error) {
+        console.log(error)
+        // in case we have an error 
+        res.status(400).json({
+            error
+        })
+    }
 
-const getTrainer = async (req, res) => {
-  // business logic and database query or fetching
-  try {
-    // step one : to retreive data from collection and we put it inside variable
+}
 
-    const trainerArray = await User.find({ role: "Formateur" });
-    // step two : send the result into the response api
-    res.status(200).json({
-      data: trainerArray,
-      count: trainerArray.length,
-    });
-    // boom done !
+const getGestionnaire = async (req, res) => {
+    try {
+        const GestionnaireArray = await User.find({role: "Gestionnaire", isDeleted: false})//.select("-password") // to get all data collection
+        res.status(200).json({
+            data : GestionnaireArray,
+            count: GestionnaireArray.length
+        })
+        // boom done !
+        
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error
+        })
+    }
+
+}
+
+// /api/admin/73857873578573
+const updateGestionnaire = async (req, res) => {
+    try {
+        const id = req.params.id 
+        const newGestionnaireInfo = req.body 
+        const updatedGestionnaire = await User.findByIdAndUpdate(id,newGestionnaireInfo)
+        res.status(200).json({msg: "updatedGestionnaire",updatedGestionnaire})
+        
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error
+        })
+    }
+}
+
+// /api/Gestionnaire/delete/73857873578573
+const deleteGestionnaire = async(req, res) => {
+    try {
+        const id = req.params.id
+        const deletedGestionnaire = await User.findByIdAndUpdate(id,{isDeleted: true}) 
+        res.status(200).json({msg: "Gestionnaire deleted",deletedGestionnaire})
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error
+        })
+    }
+
+}
+
+
+
+const getFormateur = async (req, res) => {
+  try {
+      const FormateurArray = await User.find({role: "Formateur", isDeleted: false})
+      res.status(200).json({
+          data : FormateurArray,
+          count : FormateurArray.length
+      })
+
   } catch (error) {
-    console.log(error);
-    // in case we have an error
-    res.status(400).json({
-      error,
-    });
+     console.log(error)
+     res.status(400).json({
+         error
+     })
   }
-};
+}
+
+const updateFormateur = async (req, res) => {
+    try {
+        const id = req.params.id 
+        const newFormateurInfo = req.body 
+        const updatedFormateur = await User.findByIdAndUpdate(id, newFormateurInfo)
+        res.status(200).json({msg: "updated foramteur ",updatedFormateur})
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error
+        })
+    }
+}
+
+const deleteFormateur = async(req, res) => {
+    try {
+        const id = req.params.id
+        const deletedFormateur = await User.findByIdAndUpdate(id, {isDeleted: true})
+        res.status(200).json({msg: "Formateur deleted", deletedFormateur})
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error
+        })
+    }
+}
+
+const getStudent = async (req, res) => {
+    try {
+        const StudentArray = await User.find({role: "Student", isDeleted: false})//.select("-password") 
+        res.status(200).json({
+            data : StudentArray,
+            count: StudentArray.length
+        })      
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error
+        })
+    }
+
+}
+
+// /api/student/73857873578573
+const updateStudent = async (req, res) => {
+    try {
+        const id = req.params.id 
+        const newStudentInfo = req.body 
+        const updatedStudent = await User.findByIdAndUpdate(id,newStudentInfo)
+        res.status(200).json({msg: "updatedStudent",updatedStudent})
+        
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error
+        })
+    }
+}
+
+// /api/Student/delete/73857873578573
+const deleteStudent = async(req, res) => {
+    try {
+        const id = req.params.id
+        const deletedStudent = await User.findByIdAndUpdate(id,{isDeleted: true}) 
+        res.status(200).json({msg: "Student deleted",deletedStudent})
+    } catch (error) {
+        console.log(error) 
+        res.status(400).json({
+            error
+        })
+    }
+
+}
+
 
 module.exports = {
-  getAdmins,
-  updateAdmin,
-  deleteAdmin,
-  archiveAdmin,
-  getTrainer,
-};
+
+    getAdmins,
+    updateAdmin,
+    deleteAdmin,
+    getFormateur,
+    updateFormateur,
+    deleteFormateur,
+    getGestionnaire,
+    updateGestionnaire,
+    deleteGestionnaire,
+    deleteGestionnaire,
+    getStudent,
+    updateStudent,
+    deleteStudent,
+}
