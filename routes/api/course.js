@@ -35,3 +35,14 @@ router.put('/editCourse/:id',isAuth,courseController.editCourse);
 
 
 module.exports = router;
+
+
+
+/* //{
+  "studentId":"62ff57c3131678bec17f58a7",
+  "courseId":"62ff5fc6af56f516e26480fa",
+  "name":"certif one",
+  "description":"description certifcate"
+
+  
+} */
