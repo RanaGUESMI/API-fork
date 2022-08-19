@@ -34,7 +34,7 @@ app.use('/api/chapitres',chapitre);
 // app.use('/api/chapitres',isAuth,chapitre);
 app.use('/api/formations',formation);
 app.use('/api/certificates',certificate);
-app.use('/api/gestionnaires',gestionnaire);
+
 
 
 //Create Port 
