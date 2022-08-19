@@ -5,7 +5,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "serveur": "nodemon server.js"
+    "start": "nodemon server.js"
   },
   "author": "ZAIDI",
   "license": "ISC",

@@ -11,6 +11,9 @@ const adminRoutes = require("./routes/api/adminRoutes");
 const course = require("./routes/api/course");
 const chapitre = require("./routes/api/chapitre");
 const formation = require("./routes/api/formation");
+const certificate = require("./routes/api/certificate");
+
+
 //init express
 const app = express()
 
@@ -30,6 +33,8 @@ app.use('/api/courses',course);
 app.use('/api/chapitres',chapitre);
 // app.use('/api/chapitres',isAuth,chapitre);
 app.use('/api/formations',formation);
+app.use('/api/certificates',certificate);
+app.use('/api/gestionnaires',gestionnaire);
 
 
 //Create Port 
@@ -39,6 +44,6 @@ const port = 5000
 app.listen(port , (error)=>
 error ?
  console.log(error)
-:console.log(`The server is running on port ${port}`));
+  :console.log(`The server is running on port ${port}`));
 
 

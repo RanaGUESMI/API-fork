@@ -6,7 +6,7 @@ const User=require("../models/User")
 const createChapitre = async (req,res)=>{
     try{
     const newChapitre= new Chapitre({
-         userId:req.user.id, //formateurId
+         userId:req.user.id, 
         ...req.body
     })
  const chapitre= await  newChapitre.save()
