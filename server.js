@@ -8,9 +8,9 @@ const connectDB = require('./config/connectDB')
 const userRoutes = require('./routes/api/userRoutes');
 const profile = require('./routes/api/profile');
 const adminRoutes = require("./routes/api/adminRoutes");
-const course = require("./routes/api/course");
+/* const course = require("./routes/api/course");
 const chapitre = require("./routes/api/chapitre");
-const formation = require("./routes/api/formation");
+const formation = require("./routes/api/formation"); */
 
 
 //init express
@@ -30,11 +30,11 @@ app.use('/api/gestionnaires',adminRoutes);
 app.use('/api/Formateurs/',adminRoutes);
 app.use('/api/Students',adminRoutes);
 
-app.use('/api/courses',course);
-app.use('/api/chapitres',chapitre);
+/*  app.use('/api/courses',course);
+app.use('/api/chapitres',chapitre);  */
 // app.use('/api/chapitres',isAuth,chapitre);
 
-app.use('/api/formations',formation);
+/* p.use('/api/formations',formation); */
 
 
 
@@ -42,13 +42,10 @@ app.use('/api/formations',formation);
 const port = 5000
 
 //Launch server
+
 app.listen(port , (error)=>
 error ?
  console.log(error)
-:console.log(`The server is running on port ${port}`));//Launch server
-app.listen(port , (error)=>
-error ?
- console.log(error)
-:console.log(`The server is running on port ${port}`));
+ :console.log(`The server is running on port ${port}`));
 
 
