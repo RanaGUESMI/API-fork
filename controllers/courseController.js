@@ -33,7 +33,7 @@ try {
    const editCourse = async (req,res)=>{
         try {
           const editedCourse=await  Course.findOneAndUpdate({_id:req.params.id},{$set:{...req.body}})
-          res.json({msg:"Profile edited",editedCourse})
+          res.json({msg:"Course edited",editedCourse})
       } catch (error) {
           res.send("server error")
   

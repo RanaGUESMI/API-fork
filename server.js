@@ -11,7 +11,6 @@ const adminRoutes = require("./routes/api/adminRoutes");
 const course = require("./routes/api/course");
 const chapitre = require("./routes/api/chapitre");
 const formation = require("./routes/api/formation");
-const certificate = require("./routes/api/certificate");
 
 
 //init express
@@ -25,15 +24,17 @@ app.use(express.json());
 connectDB();
 
 //Use Route
-app.use('/api/users',userRoutes); 
+app.use('/api/users',userRoutes);
 app.use('/api/profiles',profile);
-app.use('/api/admin',adminRoutes);
+app.use('/api/gestionnaires',adminRoutes);
+app.use('/api/Formateurs/',adminRoutes);
+app.use('/api/Students',adminRoutes);
 
 app.use('/api/courses',course);
 app.use('/api/chapitres',chapitre);
 // app.use('/api/chapitres',isAuth,chapitre);
+
 app.use('/api/formations',formation);
-app.use('/api/certificates',certificate);
 
 
 
@@ -44,6 +45,10 @@ const port = 5000
 app.listen(port , (error)=>
 error ?
  console.log(error)
-  :console.log(`The server is running on port ${port}`));
+:console.log(`The server is running on port ${port}`));//Launch server
+app.listen(port , (error)=>
+error ?
+ console.log(error)
+:console.log(`The server is running on port ${port}`));
 
 
