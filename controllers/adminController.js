@@ -62,7 +62,6 @@ const deleteAdmin = async(req, res) => {
 }
 
 const getGestionnaire = async (req, res) => {
-    console.log("hey")
     try {
         const GestionnaireArray = await User.find({role: "Gestionnaire", isDeleted: false})//.select("-password") // to get all data collection
         res.status(200).json({

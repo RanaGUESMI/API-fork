@@ -36,6 +36,12 @@ const userSchema = new Schema({
       ref: "Course",
     },
   ],
+  categories: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+    },
+  ],
   chapitres: [
     {
       type: Schema.Types.ObjectId,
@@ -62,7 +68,6 @@ const userSchema = new Schema({
 });
 module.exports = User = mongoose.model("User", userSchema);
 
-
-// moula el bash => superAdmin 
-// Gestionniare => Admin 
-// 
+// moula el bash => superAdmin
+// Gestionniare => Admin
+//
