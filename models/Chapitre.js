@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-// i think it would be better if we had a seperate module for chapters and in chapter we take the order and the id of course
 const ChapitreShema = new mongoose.Schema({
   title: {
     type: String,
