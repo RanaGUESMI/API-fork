@@ -20,6 +20,12 @@
 
   "dependencies": {
 
+    "admin-bro": "^4.0.1",
+
+    "admin-bro-expressjs": "^2.1.1",
+
+    "admin-bro-mongoose": "^0.5.2",
+
     "bcrypt": "^5.0.1",
 
     "cors": "^2.8.5",
