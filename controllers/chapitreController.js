@@ -14,11 +14,13 @@ const createChapitre = async (req, res) => {
     res.status(500).send("server error");
   }
 };
+
+// fine
 const getChapitre = async (req, res) => {
   try {
-    const chapitres = await Chapitre.find().populate("userId");
-    res.json({ chapitres });
-  } catch {
+    const chapitres = await Chapitre.find();
+    res.json({ chapitres, count: chapitres.length });
+  } catch (error) {
     console.log(error);
     res.status(500).send("server error");
   }
@@ -47,9 +49,26 @@ const deleteChapitre = async (req, res) => {
   }
 };
 
+const getChapterByCourseId = async (req, res) => {
+  try {
+    const courseId = req.params.courseId;
+
+    const chapters = await Chapitre.find({ courseId });
+
+    res.json({
+      data: chapters,
+      count: chapters.length, // cousrses.count mich data.count
+    });
+  } catch (error) {
+    console.log(error);
+    res.send(error);
+  }
+};
+
 module.exports = {
   createChapitre,
   getChapitre,
   editChapitre,
   deleteChapitre,
+  getChapterByCourseId,
 };
