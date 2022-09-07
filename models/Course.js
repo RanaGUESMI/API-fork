@@ -55,10 +55,13 @@ const CourseSchema = new Schema(
       type: Number,
       default: 0,
     },
+    isFree: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
 
 const Course = mongoose.model("Course", CourseSchema);
 module.exports = Course;
-// module.exports = Course = mongoose.model("course", CourseSchema);

@@ -44,9 +44,18 @@ const getCoursesByCategory = async (req, res) => {
 const getCourse = async (req, res) => {
   try {
     const courses = await Course.find();
-
     res.json({ courses });
-  } catch (error) {}
+  } catch (error) {
+    res.send("server error");
+  }
+};
+const getFreeCourse = async (req, res) => {
+  try {
+    const freeCourses = await Course.find({ isFree: true });
+    res.json({ data: freeCourses, count: freeCourses.length });
+  } catch (error) {
+    res.send("server error");
+  }
 };
 
 const editCourse = async (req, res) => {
@@ -73,6 +82,7 @@ const deleteCourse = async (req, res) => {
 module.exports = {
   createCourse,
   getCourse,
+  getFreeCourse,
   getCoursesByCategory,
   editCourse,
   deleteCourse,

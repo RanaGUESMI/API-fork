@@ -28,7 +28,7 @@ const userSchema = new Schema(
     role: {
       type: String,
       // required: true,
-      enum: ["Admin", "Formateur", "Gestionnaire", "Student"],
+      enum: ["Admin", "Gestionnaire", "Formateur", "Student"],
       default: "Student",
     },
     courses: [
@@ -61,7 +61,6 @@ const userSchema = new Schema(
         ref: "Certificate",
       },
     ],
-
     isDeleted: {
       type: Boolean,
       default: false,

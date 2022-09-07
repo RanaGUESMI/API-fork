@@ -19,7 +19,9 @@ router.post("/newCourse", courseController.createCourse);
 //Get all Courses
 //accés private
 /* router.get("/", isAuth, courseController.getCourse); */
-router.get("/", courseController.getCourse);
+router.get("/", isAuth, courseController.getCourse);
+
+router.get("/free", courseController.getFreeCourse);
 
 // @Get :http://localhost:5000/api/courses/:id
 

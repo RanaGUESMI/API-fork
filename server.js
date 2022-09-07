@@ -19,7 +19,6 @@ const profile = require("./routes/api/profile");
 const adminRoutes = require("./routes/api/adminRoutes");
 const course = require("./routes/api/course");
 const chapitre = require("./routes/api/chapitre");
-const formation = require("./routes/api/formation");
 const category = require("./routes/api/categoryRoutes");
 const partner = require("./routes/api/partnerRoute");
 
@@ -66,7 +65,7 @@ const AdminBroOptions = {
       options: {
         parent: {
           name: "Gestion des catégories",
-          icon: "fas fa-users",
+          /*  icon: "fas fa-users", */
         },
       },
     },
@@ -75,7 +74,7 @@ const AdminBroOptions = {
       options: {
         parent: {
           name: "Gestion des cours",
-          icon: "fas fa-users",
+          /* icon: "fa-solid fa-book", */
         },
       },
     },
@@ -84,7 +83,7 @@ const AdminBroOptions = {
       options: {
         parent: {
           name: "Gestion des cours",
-          icon: "fas fa-users",
+          /* icon: "fas fa-users", */
         },
       },
     },
@@ -102,7 +101,7 @@ const AdminBroOptions = {
       options: {
         parent: {
           name: "Gestion des partenaire",
-          icon: "fas fa-users",
+          icon: "fas-solid fas-users",
         },
       },
     },

@@ -12,7 +12,7 @@ const User = require("../../models/User");
 
 router
   .post("/newCategory", isAuth, CategoryController.createCategory)
-  //.get("/", isAuth, CategoryController.getCategories);
-  .get("/", CategoryController.getCategories);
+  .get("/", isAuth, CategoryController.getCategories);
+// .get("/", CategoryController.getCategories);
 
 module.exports = router;
