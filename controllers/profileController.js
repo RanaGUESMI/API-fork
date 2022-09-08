@@ -5,7 +5,7 @@ module.exports={
     createProfile:async (req,res)=>{
         try{
         const newProfile=new Profile({
-            userId:req.userId
+            userId:req.user.id
             ,...req.body
         })
      const profile= await  newProfile.save()
@@ -74,7 +74,7 @@ getCurrentProfile : async (req, res) => {
     try {
         
         console.log('start');
-        const profile = await Profile.findOne({userId:req.userId}).populate("userId")
+        const profile = await Profile.findOne({userId:req.user.id}).populate("userId")
         console.log('1',profile);
 
         if(!profile) {
